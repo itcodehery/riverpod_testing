@@ -7,7 +7,7 @@ class CartIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final cartCount = ref.watch(cartNotifierProvider);
+    final cartCount = ref.watch(cartNotifierProvider).length;
     return Stack(
       children: [
         IconButton(
@@ -29,7 +29,7 @@ class CartIcon extends ConsumerWidget {
               minHeight: 12,
             ),
             child: Text(
-              cartCount.length.toString(),
+              cartCount.toString(),
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 8,

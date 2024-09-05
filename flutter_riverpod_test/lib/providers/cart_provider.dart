@@ -28,6 +28,16 @@ class CartNotifier extends _$CartNotifier {
   }
 }
 
+@riverpod
+int cartTotal(ref) {
+  final cart = ref.watch(cartNotifierProvider);
+  int total = 0;
+  for (ProductModel p in cart) {
+    total += p.price;
+  }
+  return total;
+}
+
 //read only provider for cart notifier, I think
 // final cartNotifierProvider =
 //     NotifierProvider<CartNotifier, Set<ProductModel>>(() {
