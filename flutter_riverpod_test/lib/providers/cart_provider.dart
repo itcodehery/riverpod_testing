@@ -1,8 +1,11 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod_test/models/product_model.dart';
 
+part 'cart_provider.g.dart';
+
 //its not a provider itself, tis just a notifier class
-class CartNotifier extends Notifier<Set<ProductModel>> {
+@riverpod
+class CartNotifier extends _$CartNotifier {
   //initial value
   @override
   Set<ProductModel> build() {
@@ -26,7 +29,7 @@ class CartNotifier extends Notifier<Set<ProductModel>> {
 }
 
 //read only provider for cart notifier, I think
-final cartNotifierProvider =
-    NotifierProvider<CartNotifier, Set<ProductModel>>(() {
-  return CartNotifier();
-});
+// final cartNotifierProvider =
+//     NotifierProvider<CartNotifier, Set<ProductModel>>(() {
+//   return CartNotifier();
+// });
